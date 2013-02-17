@@ -31,10 +31,32 @@ int filling(int a, int b, int qty, int *array)
 
 int output(int qty, int *array)
 {
- int i;
+ int i,j;
+ printf("|   Element   |");
  for (i = 1; i <=qty; i++)
  {
-  array[i-1]=i;
+  printf(" %10d |",i);
+  if (i%5==0)
+  {
+   printf("|    Value    |");
+   for (j=5; j >=1; j--)
+   {
+	printf(" %10d |",(array[i-j]));
+   }
+   printf("|   Element   |");
+  }
+  else
+  {
+   if (i==qty)
+   {
+	printf("\n|    Value    |");
+	for (j=(i%5); j >=1; j--)
+	{
+	 printf(" %10d |",array[i-j]);
+	}
+	printf("\n\n");
+   }
+  }
  }
 }
 
